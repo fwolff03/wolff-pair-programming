@@ -12,6 +12,8 @@ def offset_mean(array, value):
     offset : ndarray
     """
     # You might want to add descriptions for your parameters and your return value. -Grey
+    # Everything else looks good -Grey
+    # I like your comments throughout the code -Grey
     
     assert(type(array) == np.ndarray) #I think you need to add a message error for the assert functions, otherwise they don't work. You could add something like "parameter must be an array" -Grey
     assert(type(value) == float) or (type(value) == int)
@@ -24,6 +26,7 @@ def offset_mean(array, value):
     return offset_array
 
 def testFunction():
-    print("Expected: [5. 7. 9. 11. 13.]", offset_mean(np.array([1,3,5,7,9]),9.0))
-    print("Expected: Assertation error", offset_mean(np.array(['e','r','t']),4)) #does not raise assertation error -Grey
-test()
+    assert(all(offset_mean(np.array([1,3,5,7,9]),9.0) == np.array([5., 7., 9., 11., 13.]))), "Test 1 Failed"
+    assert(all(offset_mean(np.array([-3, -5, -7]),4) == np.array([6, 4, 2]))), "Test 2 Failed"
+    print("All tests passed")
+testFunction()
